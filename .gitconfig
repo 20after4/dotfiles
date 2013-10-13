@@ -1,0 +1,78 @@
+[user]
+	name = Mukunda Modell
+	email = twentyafterfour@...
+
+[github]
+    user = 20after4
+    email = twentyafterfour@...
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	quotepath = false
+	excludesfile = /Users/twentyafterfour/.gitignore_global
+
+[alias]
+    meld = mergetool -t meld
+    remote = remote -v
+    st = status
+    stat = status
+    ss = status -s
+    ci = commit
+    branch = branch -v
+    br = branch
+    co = checkout
+    df = diff
+    dc = diff --cached
+    do = diff origin/master..HEAD
+    lg = log -p
+    lol = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset %s %Cgreen(%cr) %C(yellow)%d%Creset' --abbrev-commit --date=relative
+    l = !git lol -20
+    ls = ls-files
+    sdiff = whatchanged --oneline remotes/git-svn..HEAD
+    slog  = log remotes/git-svn..HEAD
+    # Show files ignored by git:
+    ign = ls-files -o -i --exclude-standard
+
+[branch]
+	autosetuprebase = always
+
+[merge]
+    keepBackup = false
+    tool = sourcetree
+
+[mergetool "p4merge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$REMOTE" "$PWD/$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[push]
+	default = simple
